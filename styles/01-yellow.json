@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Yellow",
+	"slug": "yellow",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#fafafa",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#FFDD33",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#080808",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#030303",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#0303031a",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				},
+				{
+					"color": "#f2f3f4",
+					"name": "Quaternary",
+					"slug": "quaternary"
+				}
+			]
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/avatar": {
+				"filter": {
+					"duotone": "var(--wp--preset--duotone--duo-yellow)"
+				}
+			},
+			"core/cover": {
+				"filter": {
+					"duotone": "var(--wp--preset--duotone--duo-yellow)"
+				}
+			},
+			"core/post-author": {
+				"filter": {
+					"duotone": "var(--wp--preset--duotone--duo-yellow)"
+				}
+			},
+			"core/post-featured-image": {
+				"filter": {
+					"duotone": "var(--wp--preset--duotone--duo-yellow)"
+				}
+			}
+		}
+	}
+}

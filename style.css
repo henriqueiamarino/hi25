@@ -1,0 +1,226 @@
+/*
+Theme Name: HI25
+Theme URI: https://iamarino.com/hi25
+Author: Henrique Iamarino
+Author URI: https://iamarino.com
+Description: HI25 is the 2025 edition of a yearly series of personal blog themes by Henrique Iamarino, a theme designer at Automattic. Launched in 2026, it frames your writing with bold cards, Manrope type and a choice of accent palettes, plus templates for book reviews and showcases and a full-screen menu overlay. A new edition arrives on WordPress.org every year. If you’re a creative person, use it to blog more, share your process and passions, and make sharing a regular part of your routine.
+Requires at least: 7.0
+Tested up to: 7.1
+Requires PHP: 7.4
+Version: 1.1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: hi25
+Tags: one-column, two-columns, featured-images, full-site-editing, block-patterns, rtl-language-support, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, blog
+
+/* ==============================================================
+   TYPOGRAPHY
+============================================================== */
+
+h1, h2, h3, h4, h5, h6,
+blockquote,
+caption,
+figcaption {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ==============================================================
+   LINKS
+   Ref: https://github.com/WordPress/gutenberg/issues/42319
+============================================================== */
+
+a {
+  text-decoration-thickness: 0.025em !important;
+  text-underline-offset: 0.15em;
+}
+
+/* ==============================================================
+   IMAGE CAPTIONS (legacy classic-content only)
+   Modern captions are sized by theme.json elements.caption.
+============================================================== */
+
+.wp-caption-text,
+.blocks-gallery-caption {
+  font-size: var(--wp--preset--font-size--x-small);
+}
+
+/* ==============================================================
+   LAYOUT UTILITIES
+============================================================== */
+
+/* Stretch column vertically */
+.col-stretch {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Equal height for sibling columns */
+.columns-equal {
+  align-items: stretch;
+}
+
+/* Grid fill column */
+.columns-equal > .wp-block-column.col-grid-fill {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 0;
+}
+
+/* Stretch Query Loop area */
+.columns-equal > .wp-block-column.col-grid-fill > .ql-stretch {
+  grid-row: 2;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Allow posts area to grow */
+.columns-equal > .wp-block-column.col-grid-fill > .ql-stretch > .wp-block-post-template {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* Keep pagination anchored */
+.columns-equal > .wp-block-column.col-grid-fill > .ql-stretch .wp-block-query-pagination {
+  margin-top: auto;
+}
+
+/* ==============================================================
+   UTILITIES
+============================================================== */
+
+/* Remove underline from links inside containers */
+.no-underline a {
+  text-decoration: none;
+}
+
+/* Layering helper */
+.is-overlapping {
+  position: relative;
+  z-index: 1;
+}
+
+/* Stack Card: clip featured image to rounded wrapper */
+.stack-card {
+	overflow: hidden;
+}
+
+/* ==============================================================
+   HOVER INVERT UTILITY (TEXT/BLOCKS)
+============================================================== */
+
+.hover-invert {
+  background-color: var(--wp--preset--color--base) !important;
+  color: var(--wp--preset--color--primary) !important;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.hover-invert:hover {
+  background-color: var(--wp--preset--color--primary) !important;
+  color: var(--wp--preset--color--base) !important;
+}
+
+.hover-invert :where(a, p, h1, h2, h3, h4, h5, h6) {
+  color: inherit !important;
+}
+
+.hover-invert .wp-block-button__link {
+  color: inherit !important;
+  background: transparent !important;
+  border-color: currentColor !important;
+}
+
+/* ==============================================================
+   CUSTOM SELECTION
+============================================================== */
+
+::-moz-selection {
+  color: var(--wp--preset--color--primary);
+  background: var(--wp--preset--color--tertiary);
+}
+
+::selection {
+  color: var(--wp--preset--color--primary);
+  background: var(--wp--preset--color--tertiary);
+}
+
+/* ==============================================================
+   MOTION SAFETY
+   Stays in style.css: at-rule wrapping per-block rules isn't
+   supported in theme.json block css. !important guarantees it
+   beats the base transitions now emitted by Global Styles,
+   regardless of stylesheet order.
+============================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-post-featured-image img,
+  .wp-block-cover .wp-block-cover__image-background {
+    transition: filter 0.2s ease !important;
+    transform: none !important;
+  }
+}
+
+/*
+ * Header aligned left
+ */
+
+.wp-block-table th {
+	text-align: left;
+}
+
+/*
+ * Stripes — odd-row cells use the tertiary preset.
+ */
+
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) td,
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) th {
+	background-color: var(--wp--preset--color--tertiary);
+}
+
+/*
+ * Jetpack Like — the widget iframe is hard-coded to 55px with its content
+ * pinned to the top, so centering floats it above the sharing buttons.
+ * Drop the reserved min-height and crop the iframe to its content height.
+ */
+
+.wp-block-jetpack-like .jetpack-likes-widget-wrapper {
+	min-height: 0 !important;
+}
+
+.wp-block-jetpack-like iframe {
+	height: 40px !important;
+	margin: 0 !important;
+	vertical-align: middle;
+}
+
+/* ==============================================================
+   PORTRAIT TILT (navigation overlay)
+   A slight lean to the left, with a brief wobble every ten
+   seconds. Lives here because @keyframes and the reduced-motion
+   at-rule cannot be expressed in theme.json block css.
+============================================================== */
+
+.portrait-tilt img {
+  transform: rotate(-3deg);
+  transform-origin: 50% 60%;
+  animation: portrait-wobble 10s ease-in-out infinite;
+}
+
+@keyframes portrait-wobble {
+  0%, 86%, 100% { transform: rotate(-3deg); }
+  89% { transform: rotate(-5.5deg); }
+  92% { transform: rotate(-1deg); }
+  95% { transform: rotate(-4.5deg); }
+  98% { transform: rotate(-2.5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-tilt img {
+    animation: none !important;
+  }
+}
