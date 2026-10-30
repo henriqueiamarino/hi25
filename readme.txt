@@ -15,6 +15,9 @@ HI25 is the 2025 edition of a yearly series of personal blog themes by Henrique 
 
 == Changelog ==
 
+= 1.1.1 =
+* Readme: license details and source URLs for the images shown in the screenshot.
+
 = 1.1.0 =
 * Renamed to HI25 (slug hi25).
 * Removed the Section Title pattern.
@@ -104,10 +107,12 @@ License URI: https://creativecommons.org/publicdomain/zero/1.0/
 
 assets/images/cover-cormayer.png (footer cover and navigation overlay)
 Photograph and halftone treatment by the theme author, Henrique Iamarino
+Source: https://github.com/henriqueiamarino/hi25/blob/main/assets/images/cover-cormayer.png
 License: CC0 1.0 Universal
 License URI: https://creativecommons.org/publicdomain/zero/1.0/
 
 screenshot.jpg
-Graphics by the theme author, Henrique Iamarino
+The screenshot shows two images: the portrait used as the site logo and the cover used as the featured image. Both by the theme author, Henrique Iamarino, made with the help of Midjourney.
+Source: https://iamarino.com/wp-content/uploads/2025/11/h-avatar-2024.png, https://iamarino.com/wp-content/uploads/2026/10/HI2026-cover-titus-andronicus-scaled.jpg
 License: CC0 1.0 Universal
 License URI: https://creativecommons.org/publicdomain/zero/1.0/
